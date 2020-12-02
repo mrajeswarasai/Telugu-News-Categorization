@@ -19,6 +19,7 @@
         <div id="wrapper">
 
             <form id="paper" method="get" action="">
+            {% csrf_token %}
 
                 <textarea placeholder="Enter news." id="text" name="text" rows="4" data-gramm_editor="false" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "></textarea>  
 
@@ -51,10 +52,11 @@
                 console.log("check_result()")
                 console.log($('#text').val())
                 $.ajax({
-                    type: 'GET',
-                    url: '/web/check',
+                    type: 'POST',
+                    url: '/check',
                     data: {
                         'msg' : $('#text').val(),
+                        'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val(),
                     },
                     success: display,
                     dataType: 'html',

@@ -7,8 +7,8 @@ def index(request):
     return render(request, 'index.html')
 
 def check(request):
-    if request.method=="GET":
-        data = request.GET['msg']
+    if request.method=="POST":
+        data = request.POST['msg']
         result = None
         if data:
             result = model.main(data)
