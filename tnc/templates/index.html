@@ -1,0 +1,75 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Categoriser</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://static.tumblr.com/maopbtg/oimmiw86r/jquery.autosize-min.js"></script>
+        <link rel="stylesheet" href={% static "css/style.css" %}>
+
+    </head>
+    <body>
+        <div id="heading">Telugu news categorisation</div>
+        <div id="wrapper">
+
+            <form id="paper" method="get" action="">
+
+                <textarea placeholder="Enter news." id="text" name="text" rows="4" data-gramm_editor="false" style="overflow: hidden; word-wrap: break-word; resize: none; height: 160px; "></textarea>  
+
+                <br>
+                <input id="button" value="Check" readonly onclick=check_result(1)>
+                
+            </form>
+
+        </div>
+        <div id = "proj">
+        {% comment %} <div id="heading">Result</div>
+        <div id="result">Politcal News</div> {% endcomment %}
+        </div>
+        <div id = "credits">
+        <p id="names">
+        KrishnaK | SaiRajeswarM | SudarshanC
+        </p>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                console.log("ready");
+                $('#text').autosize();
+            });
+        </script>
+        
+        <script>
+            function check_result(input) {
+                console.log("check_result()")
+                console.log($('#text').val())
+                $.ajax({
+                    type: 'GET',
+                    url: '/web/check',
+                    data: {
+                        'msg' : $('#text').val(),
+                    },
+                    success: display,
+                    dataType: 'html',
+                    error: function(result) {
+                        alert('error');
+                    }
+                });
+            }
+            function display(data,textStatus,jqXHR) {
+                console.log("display");
+                $('#proj').html(data);
+            }
+        </script>
+
+
+    </body>
+
+</html>
