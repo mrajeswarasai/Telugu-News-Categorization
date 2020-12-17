@@ -69,7 +69,7 @@ def main(input_text):
     stop_txt = 'project/models/telugu_stop.txt'
     loadStopwords(stop_txt)
 
-    d = {'nation':1,'entertainment':2,'business':3,'sports':4,'editorial':5,'crime':6}
+    d = {'Nation':1,'Entertainment':2,'Business':3,'Sports':4,'Editorial':5,'Crime':6}
     di = {}
     for k in d.keys():
         di[d[k]] = k
