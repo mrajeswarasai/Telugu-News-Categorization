@@ -34,8 +34,12 @@
    * Used trained model to predict the category of the input article.
  
 ## Deployment:
-- Hosted at: [https://telugu-news-categorization.herokuapp.com/](telugu-news-categorization.herokuapp.com)
+- Hosted at: [telugu-news-categorization.herokuapp.com](https://telugu-news-categorization.herokuapp.com/)
 ### Usage:
 - Copy any telugu news article from the news websites and paste it in the textarea present in website.
 - Click on Check and Category of the news article will be displayed below the textarea by evaluating from the model.
 
+### Contributors:
+- Sai Rajeswar [@mrajeswarasai](https://github.com/mrajeswarasai)
+- Krishna K
+- Sudarshan C
